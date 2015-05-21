@@ -17,58 +17,36 @@
                                     <div class="form-group center">
                                         
                                         <div class="col-xs-12">
-                                            <input type="text" required="" class="form-control" placeholder="Nombres *" name="f_nombres">
+                                            <input type="text" required="" class="form-control" placeholder="Nombres *" name="nombres">
                                         </div>
                                         <div class="col-lg-6"></div>
                                         <div class="col-xs-12">
-                                            <input type="text" required="" class="form-control" placeholder="Apellido Paterno *" name="f_ape_pa">
+                                            <input type="text" required="" class="form-control" placeholder="Apellido Paterno *" name="ap_pat">
                                         </div>
                                         <div class="col-lg-6"></div>
                                         <div class="col-xs-12">
-                                            <input type="text" class="form-control" placeholder="Apellido Materno" name="f_ape_mat" >
+                                            <input type="text" class="form-control" placeholder="Apellido Materno" name="ap_mat" >
                                         </div>
                                         <div class="col-xs-6">
-                                            <input type="text" class="form-control" placeholder="DNI-Cliente *" onKeyDown="return validar(event)" name="f_dni" maxlength="8">                                            
+                                            <input type="text" class="form-control" placeholder="DNI-Cliente *" onKeyDown="return validar(event)" name="documento" maxlength="8">                                            
                                         </div>
                                         
                                         <div class="col-xs-3">
-                                            <input type="text" class="form-control" placeholder="Cant. Hijos" onKeyDown="return validar(event)" name="f_num_hijos">
-                                        </div>                                          
-                                        <div class="col-xs-3">
-                                            <input type="text" class="form-control" placeholder="Ingreso Aprox" onKeyDown="return validar(event)" name="f_ingresos">                                            
-                                        </div> 
+                                            <input type="text" class="form-control" placeholder="Sexo" onKeyDown="return validar(event)" name="genero">
+                                        </div>
                                                                                                                         
                                     </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
                                 </td>
                                
-                                <td></td><td></td>
-                                <td>                                                                                                          
-                                    <br>                                                                        
-                                    <br>
-                                                                            
-                                        <div class="col-xs-12">
-                                            <input type="text" class="form-control" placeholder="RUC" maxlength="11" onKeyDown="return validar(event)" name="f_ruc">
-                                        </div>                                                                                                                        
-                                    
-                                        <div class="col-xs-6">
-                                            <input type="text" class="form-control" placeholder="Telefono" maxlength="12" onKeyDown="return validar(event)" name="f_telefono">
-                                        </div>
-                                        <div class="col-lg-6"></div>
-                                        <div class="col-xs-6">
-                                            <input type="text" class="form-control" placeholder="Direccion" name="f_direccion">
-                                        </div><div class="col-lg-6"></div>
-                                        <div class="col-xs-12">
-                                            <input type="text" class="form-control" placeholder="E-mail" name="f_email">
-                                        </div>
-                                        
-                                        <div class="col-xs-12">
+                                
+                                <td> 
+                                    <div class="col-xs-12">
                                             <center><br>
-                                        <input type="submit" class="btn btn-warning alert-link" value="Aceptar" />
-                                        <input type="hidden" name="f_robot" value="<>"/>
-                                        <input type="hidden" name="f_cliente_id" value="<>"/>                                                                                                                       
-                                        </center>
-                                        </div>
-                                                                                                            
+                                                <input type="submit" class="btn btn-warning alert-link" value="Aceptar" />
+                                                <input type="hidden" name="f_robot" value="<>"/>
+                                                <input type="hidden" name="f_cliente_id" value="<>"/>                                                                                                                       
+                                            </center>
+                                    </div>                                                                      
                                 </td>                                    
                             </tr>                               
                         </tbody>

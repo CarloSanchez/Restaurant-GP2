@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21/05/2015 04:24:38 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="modelo.entidad.TipoUsuario" optimistic-lock="version" schema="RESTAURANT" table="TIPO_USUARIO">
+    <id name="idTipoUsuario" type="string">
+      <column length="20" name="ID_TIPO_USUARIO"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombreUsuario" type="string">
+      <column length="20" name="NOMBRE_USUARIO"/>
+    </property>
+  </class>
+</hibernate-mapping>

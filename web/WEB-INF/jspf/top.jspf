@@ -1,70 +1,71 @@
- <html>
-<head>     
+<html>
+    <head>     
 
-
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">              
-        <title>registro</title> 
+        <meta charcet="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <meta http-equiv="X-UA-Compatble" content="IE-edge">
+        <title>restaurant</title> 
         <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-        
-        
-        
- </head>
- 
- <style type="text/css">
-  <!--body{
-background-color: #FFFEE1;
-    }-->
-</style>
+        <link rel="stylesheet" type="text/css" href="css/menu-12.css">
+
+
+
+    </head>
+
+    <style type="text/css">
+        <!--body{
+            background-color: #FFFEE1;
+        }-->
+    </style>
 
     <body> 
         <header>
-            
-			
-         <div class="cabecera"><img src="recursos/img/cabecera.jpg"  width="1366" height="200">
-         </div>
-	
-            
-            
-         <nav class="navbar navbar-inverse">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="inicio.jsp">INICIO</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              
-                <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">REGISTRO <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="registro.jsp">Registro Cliente</a></li>
-                  
-                </ul>
-              </li>
-                
-              <li><a href="reporte.jsp">REPORTE</a></li>
-              <li><a href="cliente.jsp">CLIENTES</a></li>
-              
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="menu.jsp">MENU DEL DIA</a></li>
-                  <li><a href="observaciones.jsp">OBSERVACIONES</a></li>
-                  <li><a href="#">SALIR</a></li>
-                  
-                </ul>
-              </li>
-              
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </nav>
-            
+
+
+            <div class="cabecera"><img src="recursos/img/cabecera.jpg"  width="1366" height="200">
+            </div>
+
+
+            <div>  
+                <nav class="navbar navbar-inverse">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">INICIO</a>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">REGISTRO<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="registro.jsp">Registro_Cliente</a></li>  
+                                    </ul>
+                                </li>
+
+                                <li><a href="reporte.jsp">REPORTE</a></li>
+                                <li><a href="cliente.jsp">CLIENTES</a></li>
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="menu.jsp">MENU DEL DIA</a></li>
+                                        <li><a href="observaciones.jsp">OBSERVACIONES</a></li>
+                                        <li><a href="#">SALIR</a></li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </nav>
+            </div>
+
         </header> 
 
