@@ -1,5 +1,5 @@
 package modelo.entidad;
-// Generated 21/05/2015 04:24:37 PM by Hibernate Tools 4.3.1
+// Generated 26/05/2015 06:23:58 AM by Hibernate Tools 4.3.1
 
 
 
@@ -17,6 +17,7 @@ public class Persona  implements java.io.Serializable {
      private String genero;
 
     public Persona() {
+        this.idPersona="";
     }
 
 	

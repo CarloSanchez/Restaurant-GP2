@@ -3,11 +3,10 @@
 
         <meta charcet="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatble" content="IE-edge">
         <title>restaurant</title> 
-        <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="css/menu-12.css">
 
 
 
@@ -20,52 +19,71 @@
     </style>
 
     <body> 
+
         <header>
 
-
-            <div class="cabecera"><img src="recursos/img/cabecera.jpg"  width="1366" height="200">
-            </div>
-
+            <div class="cabecera"><img src="recursos/img/cabecera.jpg"  width="1366" height="200"></div>
 
             <div>  
                 <nav class="navbar navbar-inverse">
+
                     <div class="container">
+
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">INICIO</a>
+                            <a class="navbar-brand" href="inicio.jsp">INICIO</a>
                         </div>
+
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">REGISTRO<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="registro.jsp">Registro_Cliente</a></li>  
+                                        <li><a href="registrarCliente.jsp">REGISTRAR CLIENTE</a></li>  
                                     </ul>
                                 </li>
 
-                                <li><a href="reporte.jsp">REPORTE</a></li>
-                                <li><a href="cliente.jsp">CLIENTES</a></li>
+                                <li><a href="reporte.jsp">MENU DEL DIA</a></li>
+                                
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CONTRATO<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                         
+                                        <li><a href="#">VER CONTRATO</a></li> 
+                                        <li><a href="#">RENOVAR CONTRATO</a></li> 
+                                    </ul>
+                                </li>
+                                
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CLIENTE<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="listarClientes.jsp">VER CLIENTE</a></li>  
+                                    </ul>
+                                </li>
 
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MAS<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="menu.jsp">MENU DEL DIA</a></li>
                                         <li><a href="observaciones.jsp">OBSERVACIONES</a></li>
-                                        <li><a href="#">SALIR</a></li>
+                                        <li><a href="inicio.jsp">SALIR</a></li>
 
                                     </ul>
                                 </li>
 
                             </ul>
-                        </div><!--/.nav-collapse -->
+                        </div>
+                        <!--/.nav-collapse -->
+
+
                     </div>
+
                 </nav>
             </div>
 
-        </header> 
+        </header>
+
 
