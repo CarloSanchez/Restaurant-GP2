@@ -2,13 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 30/05/2015 10:46:01 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class name="modelo.entidad.TipoUsuario" optimistic-lock="version" schema="RESTAURANTE" table="TIPO_USUARIO">
-    <id name="idTipoUsuario" type="string">
-      <column length="20" name="ID_TIPO_USUARIO"/>
+  <class name="modelo.entidad.TipoVenta" optimistic-lock="version" schema="RESTAURANTE" table="TIPO_VENTA">
+    <id name="idTipoventa" type="string">
+      <column length="20" name="ID_TIPOVENTA"/>
       <generator class="assigned"/>
     </id>
-    <property name="nombreUsuario" type="string">
-      <column length="20" name="NOMBRE_USUARIO"/>
+    <property name="nombreVenta" type="string">
+      <column length="20" name="NOMBRE_VENTA"/>
     </property>
   </class>
 </hibernate-mapping>

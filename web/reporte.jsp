@@ -28,4 +28,4 @@
             </table>
      </nav>
  
- <%@include file="WEB-INF/jspf/bottom.jspf"%>
+  <%@include file="WEB-INF/jspf/bottom.jspf"%>
