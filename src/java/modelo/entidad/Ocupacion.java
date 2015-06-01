@@ -1,5 +1,5 @@
 package modelo.entidad;
-// Generated 30/05/2015 10:45:59 PM by Hibernate Tools 4.3.1
+// Generated 03/06/2015 10:25:26 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,27 +9,27 @@ package modelo.entidad;
 public class Ocupacion  implements java.io.Serializable {
 
 
-     private String idTipoCliente;
+     private String idOcupacion;
      private String nombre;
 
     public Ocupacion() {
     }
 
 	
-    public Ocupacion(String idTipoCliente) {
-        this.idTipoCliente = idTipoCliente;
+    public Ocupacion(String idOcupacion) {
+        this.idOcupacion = idOcupacion;
     }
-    public Ocupacion(String idTipoCliente, String nombre) {
-       this.idTipoCliente = idTipoCliente;
+    public Ocupacion(String idOcupacion, String nombre) {
+       this.idOcupacion = idOcupacion;
        this.nombre = nombre;
     }
    
-    public String getIdTipoCliente() {
-        return this.idTipoCliente;
+    public String getIdOcupacion() {
+        return this.idOcupacion;
     }
     
-    public void setIdTipoCliente(String idTipoCliente) {
-        this.idTipoCliente = idTipoCliente;
+    public void setIdOcupacion(String idOcupacion) {
+        this.idOcupacion = idOcupacion;
     }
     public String getNombre() {
         return this.nombre;

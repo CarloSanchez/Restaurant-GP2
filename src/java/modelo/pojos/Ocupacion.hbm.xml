@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 30/05/2015 10:46:01 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 03/06/2015 10:25:27 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class name="modelo.entidad.Ocupacion" optimistic-lock="version" schema="RESTAURANTE" table="OCUPACION">
-    <id name="idTipoCliente" type="string">
-      <column length="20" name="ID_TIPO_CLIENTE"/>
+  <class name="modelo.entidad.Ocupacion" optimistic-lock="version" schema="RESTAURANT" table="OCUPACION">
+    <id name="idOcupacion" type="string">
+      <column length="20" name="ID_OCUPACION"/>
       <generator class="assigned"/>
     </id>
     <property name="nombre" type="string">

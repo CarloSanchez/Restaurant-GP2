@@ -42,7 +42,7 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">REGISTRO<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="registrarCliente.jsp">REGISTRAR CLIENTE</a></li>  
+                                        <li><a href="ContratoCliente.jsp">REGISTRAR CLIENTE</a></li>  
                                     </ul>
                                 </li>
 
@@ -52,8 +52,10 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CONTRATO<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
                                          
+
                                         <li><a href="listarContratos.jsp">VER CONTRATO</a></li> 
                                         <li><a href="Contrato.jsp">RENOVAR CONTRATO</a></li> 
+
                                     </ul>
                                 </li>
                                 

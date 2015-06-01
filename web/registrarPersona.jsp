@@ -1,3 +1,5 @@
+<%@page import="modelo.dao.Impl.PersonaDaoImpl"%>
+<%@page import="modelo.dao.PersonaDao"%>
 <%@page import="modelo.entidad.Persona"%>
 <%@page import="modelo.dao.Impl.RestaurantDaoImpl"%>
 <%@page import="modelo.dao.RestaurantDao"%>
@@ -5,9 +7,8 @@
 
 <%
     RestaurantDao restdao = new RestaurantDaoImpl();
+    PersonaDao per = new PersonaDaoImpl();
     Persona persona = new Persona();
-
-    
 
     String nombres = request.getParameter("nombres");
     nombres = nombres == null ? "" : nombres;
@@ -29,24 +30,20 @@
    out.println("<br> Afuera");
     if (!nombres.equals("") & !ap_pat.equals("") & !ap_mat.equals("") & !documento.equals("") & !genero.equals("")) {
  
-        
         persona.setNombres(nombres);
         persona.setApPat(ap_pat);
         persona.setApMat(ap_mat);
         persona.setDocumento(documento);
         persona.setGenero(genero);
         
-        
-
-        if (restdao.agregarPersona(persona)) {
-           out.println("se registro correctamente");
-            response.sendRedirect("registrarCliente.jsp");
+        if (per.agregarPersona(persona)) {
+            response.sendRedirect("buscarPersona.jsp");
             out.println("Adentro");
-           System.out.println("Se registro");
         } else {
             mensaje = "No se pudo registrar";
             //System.out.println("NO registro");
             response.sendRedirect("registrarPersona.jsp");
+
         }
     }
 
@@ -65,7 +62,7 @@
                                 <tbody>
                                     <tr>
                                     <td>NOMBRES:</td>
-                                    <td><input type="text" name="nombres" placeholder="Nombres" value=""></td>
+                                    <td><input type="text" name="nombres" placeholder="Nombres"></td>
                                 </tr>
                                 <tr>
                                     <td>APELLIDO PATERNO:</td>
@@ -83,6 +80,7 @@
                                     <td>SEXO:</td>
                                     <td>
                                         <select name="genero">
+                                            <option>Seleccione</option>
                                             <option value="M">Masculino</option>
                                             <option value="F">Femenino</option>
                                         </select>

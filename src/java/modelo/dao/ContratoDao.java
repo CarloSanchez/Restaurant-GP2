@@ -5,10 +5,14 @@
  */
 package modelo.dao;
 
+import modelo.entidad.Contrato;
+
 /**
  *
  * @author ADMIN
  */
-public interface RestaurantDao {
+public interface ContratoDao {
     
+     public boolean ejecutar1(String idCliente, String idOcupacion, String precio);
+     public boolean crearContrato(Contrato contrato);
 }

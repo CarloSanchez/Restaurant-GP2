@@ -1,8 +1,10 @@
+
 <%@include file="WEB-INF/jspf/top.jspf"%>
 <%@page import="modelo.entidad.Persona"%>
 <%@page import="modelo.dao.Impl.RestaurantDaoImpl"%>
 <%@page import="modelo.dao.RestaurantDao"%>
-
+<%@page import="modelo.dao.Impl.PersonaDaoImpl"%>
+<%@page import="modelo.dao.PersonaDao"%>
 <html>
     <body>
         <table>
@@ -21,8 +23,8 @@
             </tr>
             <%
                 int count = 0;
-                RestaurantDao dao = new RestaurantDaoImpl();
-                for (Persona persona : dao.listarpersona()) {
+                PersonaDao per = new PersonaDaoImpl();
+                for (Persona persona : per.listarpersona()) {
                     count++;
 
 

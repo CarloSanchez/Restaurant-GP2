@@ -13,6 +13,7 @@ public class Cliente {
 
     private String idCliente;
 
+
     public Cliente() {
         this.idCliente="";
     }
@@ -24,5 +25,6 @@ public class Cliente {
     public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
+
 
 }

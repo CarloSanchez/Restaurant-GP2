@@ -5,10 +5,15 @@
  */
 package modelo.dao;
 
+import java.util.List;
+import modelo.entidad.Ocupacion;
+
 /**
  *
  * @author ADMIN
  */
-public interface RestaurantDao {
+public interface OcupacionDao {
+    
+     public List<Ocupacion> listarOcupacion();
     
 }
