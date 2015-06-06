@@ -18,4 +18,5 @@ public interface PersonaDao {
     public boolean modificarPersona(Persona persona);
     public boolean eliminarPersona(Persona persona);
     public Persona buscarPersona(String documento);
+    
 }
