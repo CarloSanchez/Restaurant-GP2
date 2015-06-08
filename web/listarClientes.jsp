@@ -61,11 +61,25 @@
                 <td><%=cliente.getFechaIni()%></td>
                 <td><%=cliente.getFechaTerm()%></td>
                  </div>
-                 
-                <td><a href="modificarCliente.jsp">Modificar</a></td><td></td>
-                <td><a href="eliminarCliente.jsp">Eliminar</a></td>  
                 
-            
+                                
+               
+                <td> 
+                
+                                <li><a href="eliminarCliente.jsp">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                           
+               </td> 
+                <td> 
+                <li>
+                <a href="modificarCliente.jsp">
+                <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>modificar
+                </a>
+                </li>                       
+               </td> 
+ <
                 
                 
             </tr>
