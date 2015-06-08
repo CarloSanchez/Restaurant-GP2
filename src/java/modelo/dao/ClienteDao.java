@@ -16,7 +16,8 @@ import modelo.entidad.Persona;
 public interface ClienteDao {
     
      public boolean insertarCliente(Cliente client);
-     public List<Cliente> listarCliente(Cliente cliente);
      public Persona buscarCliente(String documento);
-    
+     public List<Cliente> listarCliente();
+     public List<Cliente> listarPensionista();
+     public Persona buscarPensionista(String documento);
 }

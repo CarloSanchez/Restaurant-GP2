@@ -35,11 +35,10 @@
 
             String idPersona = request.getParameter("idPersona");
             idPersona = idPersona == null ? "" : idPersona;
-            
 
             String idCliente = request.getParameter("idPersona");
             idCliente = idCliente == null ? "" : idCliente;
-            out.println("idCliente");
+            out.println(idCliente);
 
             String nombres = request.getParameter("nombres");
             nombres = nombres == null ? "" : nombres;
@@ -74,6 +73,9 @@
             String opcion = request.getParameter("opcion");
             opcion = opcion == null ? "buscar" : opcion;
 
+            String option = request.getParameter("option");
+            option = option == null ? "regOcupacion" : option;
+
             String mensaje = "";
             String mensaje2 = "";
             String mensajeError = "";
@@ -87,22 +89,26 @@
                         ap_pat = persona.getApPat();
                         ap_mat = persona.getApMat();
                         documento = persona.getDocumento();
-                        
+
                         opcion = "registrar";
+
                     } else {
                         mensaje = "El cliente no esta registrado <a href='buscarPersona.jsp'> Registrar Aqui</a>";
                     }
                 }
             }
-            
+            if (!option.equals("regOcupacion")) {
+                response.sendRedirect("registrarOcupacion.jsp");
+            }
             if (!opcion.equals("registrar")) {
+
                 con.setIdCliente(idPersona);
                 con.setIdOcupacion(idOcupacion);
                 con.setFecha(fechas);
                 con.setFechaIni(fechaIni);
                 con.setFechaTerm(fechaTerm);
                 con.setPrecio(precio);
-                
+
                 if (cd.crearContrato(con)) {
                     response.sendRedirect("inicio.jsp");
 
@@ -114,85 +120,88 @@
             }
 
         %>
-        
-        
-            <form action="ContratoCliente.jsp" method="POST" aling="center"> 
 
 
-                <table>
-                    <tr>
-                        <td>DNI:</td>
-                        <td><input type="text" name="buscarDni" placeholder="Ingrese DNI" maxlength="8"></td>
-                        <td><input type="submit" value="Buscar"></td>
-                    </tr> </table>
+        <form action="ContratoCliente.jsp" method="POST" aling="center"> 
+
+
+            <table>
                 <tr>
-                    <td colpan="3"><%=mensaje%></td>
+                    <td>DNI:</td>
+                    <td><input type="text" name="buscarDni" placeholder="Ingrese DNI" maxlength="8"></td>
+                    <td><input type="submit" value="Buscar"></td>
+                </tr> 
+            </table>
+            <tr>
+                <td colpan="3"><%=mensaje%></td>
+            </tr>
+
+        </form>
+
+
+        <form action="ContratoCliente.jsp" method="POST" aling="center">
+            <input type="hidden" name="idPersona" value="<%=idPersona%>" size="20">
+            <input type="hidden" name="opcion" value="resgitrar" class="from-horizontal">
+            <table aling=""> 
+                <tr>
+                    <td>Nombres:</td>
+                    <td><input type="text" name="nombres" placeholder="Nombres" value="<%=nombres%>" readonly="true"></td>
+                </tr> 
+                <tr>
+                    <td>Apellido Paterno:</td>
+                    <td><input type="text" name="ap_pat" placeholder="Apellidos" value="<%=ap_pat%>" readonly="true"></td>
+                </tr> 
+                <tr>
+                    <td>Apellido Materno:</td>
+                    <td><input type="text" name="ap_mat" placeholder="Apellidos" value="<%=ap_mat%>" readonly="true"></td>
+                </tr> 
+                <tr>
+                    <td>Dni:</td>
+                    <td><input type="text" name="documento" placeholder="Dni" value="<%=documento%>" readonly="true"></td>
+                </tr> 
+
+                <tr>
+                    <td>Ocupacion</td>
+                    <td>
+                        <select name="idOcupacion">
+                            <option>Seleccione</option>
+                            <%
+                                for (Ocupacion ocupa : ocp.listarOcupacion()) {
+
+                            %>
+                            <option value="<%=ocupa.getIdOcupacion()%>"><%=ocupa.getNombre()%></option>
+                            <%}%>
+                        </select>
+                    </td>
                 </tr>
 
-            </form>
+                <tr>
+                    <td>Precio:</td>
+                    <td><input type="text" name="precio" placeholder="Precio" value=""></td>
+                </tr> 
+                <tr>
+                    <td>Inicio:</td>
+                    <td><input type="text" name="fechaini" placeholder="DD/MM/YY" value=""></td>
+                </tr>
+                <tr>
+                    <td>Termino</td>
+                    <td><input type="text" name="fechaterm" placeholder="DD/MM/YY" value=""></td>
+                </tr>
+                <%if (mensajeError.equals("")) {%>
+                <tr>
+                    <td colspan="2"><%=mensajeError%></td>
+                </tr>
+
+                <%}%>
+                <tr>
+                    <td>
+                        <input type="submit" value="Guardar">
+                    </td>
+                </tr>
+            </table>
+        </form>
 
 
-            <form action="ContratoCliente.jsp" aling="center">
-                <input type="hidden" name="idPersona" value="<%=idPersona%>" size="20">
-                <input type="hidden" name="opcion" value="resgitrar" class="from-horizontal">
-                <table aling=""> 
-                    <tr>
-                        <td>Nombres:</td>
-                        <td><input type="text" name="nombres" placeholder="Nombres" value="<%=nombres%>" readonly="true"></td>
-                    </tr> 
-                    <tr>
-                        <td>Apellido Paterno:</td>
-                        <td><input type="text" name="ap_pat" placeholder="Apellidos" value="<%=ap_pat%>" readonly="true"></td>
-                    </tr> 
-                    <tr>
-                        <td>Apellido Materno:</td>
-                        <td><input type="text" name="ap_mat" placeholder="Apellidos" value="<%=ap_mat%>" readonly="true"></td>
-                    </tr> 
-                    <tr>
-                        <td>Dni:</td>
-                        <td><input type="text" name="documento" placeholder="Dni" value="<%=documento%>" readonly="true"></td>
-                    </tr> 
-                    <tr>
-                        <td>Ocupacion</td>
-                        <td>
-                            <select name="idOcupacion">
-                                <option>Seleccione</option>
-                                <%
-                                    for (Ocupacion ocupa : ocp.listarOcupacion()) {
-
-                                %>
-                                <option value="<%=ocupa.getIdOcupacion()%>"><%=ocupa.getNombre()%></option>
-                                <%}%>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Precio:</td>
-                        <td><input type="text" name="precio" placeholder="Precio" value=""></td>
-                    </tr> 
-                    <tr>
-                        <td>Inicio:</td>
-                        <td><input type="text" name="fechaini" placeholder="DD/MM/YY" value=""></td>
-                    </tr>
-                    <tr>
-                        <td>Termino</td>
-                        <td><input type="text" name="fechaterm" placeholder="DD/MM/YY" value=""></td>
-                    </tr>
-                    <%if (mensajeError.equals("")) {%>
-                    <tr>
-                        <td colspan="2"><%=mensajeError%></td>
-                    </tr>
-
-                    <%}%>
-                    <tr>
-                        <td>
-                            <input type="submit" value="Guardar">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-
-        
     </body>
 </html>
 <%@include file="WEB-INF/jspf/bottom.jspf"%>

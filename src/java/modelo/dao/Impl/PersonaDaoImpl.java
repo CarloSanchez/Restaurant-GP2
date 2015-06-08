@@ -42,7 +42,8 @@ public class PersonaDaoImpl implements PersonaDao{
             session.close();
             System.out.println("Error: "+e.getMessage());
         }
-        return estado;    }
+        return estado;    
+    }
 
     @Override
     public List<Persona> listarpersona() {

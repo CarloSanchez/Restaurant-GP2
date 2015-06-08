@@ -5,14 +5,10 @@
  */
 package modelo.dao;
 
-import java.util.List;
-import modelo.entidad.Usuario;
-
 /**
  *
  * @author ADMIN
  */
-public interface RestaurantDao 
-{
+public interface ControlDao {
     
 }

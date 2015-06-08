@@ -30,49 +30,9 @@ import org.hibernate.Transaction;
  * @author JUAN
  */
 public class RestaurantDaoImpl implements RestaurantDao {
+    
     public Connection conecta(){
         return ConexionOracle.conectar();
     }
-
-      @Override
-      
-    public List<Usuario> validarusuario(String usuario, String password) 
-    {
-        List<Usuario>  lista=new ArrayList<Usuario>();
-        Usuario u=null;
-        Statement st=null;
-        ResultSet rs=null;
-        String query="select p.nombres ,p.ap_pat,p.ap_mat,p.documento, p.genero,u.login,u.pasword ,u.id_usuario from persona p,usuario u where p.id_persona=u.id_usuario and u.login='"+usuario+"' and u.pasword='"+password+"'";
-         try {
-            st=conectar().createStatement();
-            rs=st.executeQuery(query);
-             while (rs.next()) {
-                 u=new Usuario();
-                 u.setNombres(rs.getString("nombres"));
-                 u.setAp_pat(rs.getString("ap_pat"));
-                 u.setAp_mat(rs.getString("ap_mat"));
-                 u.setDocumento(rs.getString("documento"));
-                 u.setGenero(rs.getString("genero"));
-                 u.setUser(rs.getString("login"));
-                 u.setPassword(rs.getString("pasword"));
-                 u.setId_usuario(rs.getString("id_usuario"));
-                 
-                 lista.add(u);
-             }
-             conectar().close();
-        } 
-         catch (Exception e) {
-            e.printStackTrace();
-             try {
-                  conectar().close(); 
-             } catch (Exception ex) {
-               
-             }
-        }
-         return lista;}
+    
     }
-
-
-
-   
-

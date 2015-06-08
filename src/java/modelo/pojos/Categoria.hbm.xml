@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 07/06/2015 06:59:40 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 08/06/2015 03:44:10 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class name="modelo.entidad.Categoria" optimistic-lock="version" schema="RESTAURANTE" table="CATEGORIA">
+  <class name="modelo.entidad.Categoria" optimistic-lock="version" schema="RESTAURANT" table="CATEGORIA">
     <id name="idCategoria" type="string">
       <column length="20" name="ID_CATEGORIA"/>
       <generator class="assigned"/>
@@ -10,11 +10,5 @@
     <property name="nombre" type="string">
       <column length="20" name="NOMBRE"/>
     </property>
-    <set fetch="select" inverse="true" lazy="true" name="platos" table="PLATO">
-      <key>
-        <column length="20" name="ID_CATEGORIA" not-null="true"/>
-      </key>
-      <one-to-many class="modelo.pojos.Plato"/>
-    </set>
   </class>
 </hibernate-mapping>

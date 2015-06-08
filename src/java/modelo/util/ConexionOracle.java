@@ -19,7 +19,7 @@ public class ConexionOracle {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
-            cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","Restaurante","restaurante");
+            cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","Restaurant","restaurant");
 
         } catch (Exception e) {
             e.printStackTrace();

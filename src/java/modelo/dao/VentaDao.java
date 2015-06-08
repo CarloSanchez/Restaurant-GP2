@@ -5,14 +5,14 @@
  */
 package modelo.dao;
 
-import java.util.List;
-import modelo.entidad.Usuario;
+import modelo.entidad.Venta;
 
 /**
  *
  * @author ADMIN
  */
-public interface RestaurantDao 
-{
+public interface VentaDao {
+    
+    public boolean realizarVenta(Venta venta);
     
 }

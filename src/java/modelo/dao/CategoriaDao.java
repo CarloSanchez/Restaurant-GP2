@@ -6,13 +6,15 @@
 package modelo.dao;
 
 import java.util.List;
-import modelo.entidad.Usuario;
+import modelo.entidad.Categoria;
 
 /**
  *
  * @author ADMIN
  */
-public interface RestaurantDao 
-{
+public interface CategoriaDao {
+    
+     public boolean agregarCategoria(Categoria categoria);
+    public List<Categoria> listarCategoria();
     
 }

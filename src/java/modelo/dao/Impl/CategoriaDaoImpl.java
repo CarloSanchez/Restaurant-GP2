@@ -6,11 +6,11 @@
 package modelo.dao.Impl;
 
 import java.sql.Connection;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.dao.OcupacionDao;
-import modelo.entidad.Ocupacion;
+import modelo.dao.CategoriaDao;
+import modelo.entidad.Categoria;
+import modelo.entidad.Persona;
 import modelo.util.ConexionOracle;
 import modelo.util.HibernateUtil;
 import org.hibernate.Query;
@@ -22,35 +22,15 @@ import org.hibernate.Transaction;
  *
  * @author ADMIN
  */
-public class OcupacionDaoImpl implements OcupacionDao{
+public class CategoriaDaoImpl implements CategoriaDao{
     
-    public Connection conecta()
+     public Connection conecta()
     {
         return ConexionOracle.conectar();
     }
 
     @Override
-    public List<Ocupacion> listarOcupacion() 
-    {
-        List<Ocupacion> lista = null;
-        SessionFactory sf = null;
-        Session session = null;
-        try {
-            sf = HibernateUtil.getSessionFactory();
-            session = sf.openSession();
-            lista = new ArrayList<Ocupacion>();
-            Query query = session.createQuery("FROM Ocupacion");
-            lista = query.list();
-            session.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            session.close();
-        }
-        return lista; 
-    }
-
-    @Override
-    public boolean insertarOcupacion(Ocupacion ocupacion) 
+    public boolean agregarCategoria(Categoria categoria) 
     {
         boolean estado = false;
         SessionFactory sf = null;
@@ -60,7 +40,7 @@ public class OcupacionDaoImpl implements OcupacionDao{
             sf = HibernateUtil.getSessionFactory();
             session = sf.openSession();
             t = session.beginTransaction();
-            session.save(ocupacion);
+            session.save(categoria);
             t.commit();
             session.close();
             estado = true;
@@ -73,5 +53,27 @@ public class OcupacionDaoImpl implements OcupacionDao{
         }
         return estado; 
     }
+
+    @Override
+    public List<Categoria> listarCategoria() 
+    {
+        List<Categoria> lista = null;
+        SessionFactory sf = null;
+        Session session = null;
+        try {
+            sf = HibernateUtil.getSessionFactory();
+            session = sf.openSession();
+            lista = new ArrayList<Categoria>();
+            Query query = session.createQuery("FROM Categoria");
+            lista = query.list();
+            session.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.close();
+        }
+        return lista;
+    }
+     
+     
     
 }

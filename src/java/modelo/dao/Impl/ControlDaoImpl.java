@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo.dao;
+package modelo.dao.Impl;
 
-import java.util.List;
-import modelo.entidad.Usuario;
+import modelo.dao.ControlDao;
 
 /**
  *
  * @author ADMIN
  */
-public interface RestaurantDao 
-{
+public class ControlDaoImpl implements ControlDao{
+    
+    
     
 }

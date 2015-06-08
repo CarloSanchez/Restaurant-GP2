@@ -24,6 +24,8 @@ public class Contrato {
     private String fechaTerm;
     private String precio;
     private String idUsuario;
+    
+    
 
     public Contrato() {
         this.idContrato="";

@@ -12,7 +12,7 @@ import modelo.entidad.Usuario;
  *
  * @author ADMIN
  */
-public interface RestaurantDao 
-{
-    
+public interface UsuarioDao {
+     public List<Usuario> listarUsuario();
+     public List<Usuario> validarusuario(String login,String password); 
 }

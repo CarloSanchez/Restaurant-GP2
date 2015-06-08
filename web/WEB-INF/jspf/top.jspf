@@ -46,7 +46,7 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="reporte.jsp">MENU DEL DIA</a></li>
+                                <li><a href="RealizarVenta.jsp">MENU DEL DIA</a></li>
                                 
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CONTRATO<span class="caret"></span></a>
@@ -71,6 +71,7 @@
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="menu.jsp">MENU DEL DIA</a></li>
                                         <li><a href="observaciones.jsp">OBSERVACIONES</a></li>
+                                        <li><a href="RegistrarPlato.jsp">Ingresar Nuevos Platos</a></li>
                                         <li><a href="inicio.jsp">SALIR</a></li>
 
                                     </ul>

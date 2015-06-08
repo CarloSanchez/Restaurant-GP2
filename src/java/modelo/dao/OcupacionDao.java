@@ -15,5 +15,5 @@ import modelo.entidad.Ocupacion;
 public interface OcupacionDao {
     
      public List<Ocupacion> listarOcupacion();
-    
+     public boolean insertarOcupacion(Ocupacion ocupacion);
 }
