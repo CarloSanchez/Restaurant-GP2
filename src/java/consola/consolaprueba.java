@@ -12,13 +12,19 @@ import modelo.dao.Impl.ContratoDaoImpl;
 import modelo.dao.Impl.OcupacionDaoImpl;
 import modelo.dao.Impl.PersonaDaoImpl;
 import modelo.dao.Impl.RestaurantDaoImpl;
+import modelo.dao.Impl.TipoUsuarioDaoImpl;
+import modelo.dao.Impl.TipoVentaDaoImpl;
 import modelo.dao.OcupacionDao;
 import modelo.dao.PersonaDao;
 import modelo.dao.RestaurantDao;
+import modelo.dao.TipoUsuarioDao;
+import modelo.dao.TipoVentaDao;
 import modelo.entidad.Cliente;
 import modelo.entidad.Contrato;
 import modelo.entidad.Ocupacion;
 import modelo.entidad.Persona;
+import modelo.entidad.TipoUsuario;
+import modelo.entidad.TipoVenta;
 
 /**
  *
@@ -37,7 +43,9 @@ public class consolaprueba {
         //d.InsertCliente();
        // d.insertPrecio();
         //d.buscarcliente();
-        d.InsertContrato();
+      //  d.InsertContrato();
+      //  d.listartipousuario();
+        d.listarventa();
         
     }
     
@@ -187,6 +195,23 @@ public class consolaprueba {
             System.out.println("No se agrego el cliente");
            System.out.println(""+p.getNombres());
 
+        }
+    }
+  public void listartipousuario()
+    {
+      TipoUsuarioDao tipo=new TipoUsuarioDaoImpl();
+      for (TipoUsuario p : tipo.listarTipoUsuario()) {
+          System.out.println("id: "+p.getIdTipoUsuario()+"\n nombre: "+p.getNombreUsuario());
+      }
+    }
+  
+  public void listarventa()
+  
+    {
+    TipoVentaDao tventa=new TipoVentaDaoImpl();
+        for (TipoVenta tv : tventa.listarTipoVenta()) 
+        {
+          System.out.println("id: "+tv.getIdTipoventa()+"\n nombre: "+tv.getNombreVenta());
         }
     }
 }

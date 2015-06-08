@@ -1,5 +1,9 @@
 package modelo.entidad;
-// Generated 03/06/2015 10:25:26 PM by Hibernate Tools 4.3.1
+// Generated 07/06/2015 06:59:39 PM by Hibernate Tools 4.3.1
+
+import modelo.pojos.Cliente;
+import modelo.pojos.Usuario;
+
 
 
 
@@ -15,22 +19,25 @@ public class Persona  implements java.io.Serializable {
      private String apMat;
      private String documento;
      private String genero;
+     private Usuario usuario;
+     private Cliente cliente;
 
     public Persona() {
-        this.idPersona="";
     }
 
 	
     public Persona(String idPersona) {
         this.idPersona = idPersona;
     }
-    public Persona(String idPersona, String nombres, String apPat, String apMat, String documento, String genero) {
+    public Persona(String idPersona, String nombres, String apPat, String apMat, String documento, String genero, Usuario usuario, Cliente cliente) {
        this.idPersona = idPersona;
        this.nombres = nombres;
        this.apPat = apPat;
        this.apMat = apMat;
        this.documento = documento;
        this.genero = genero;
+       this.usuario = usuario;
+       this.cliente = cliente;
     }
    
     public String getIdPersona() {
@@ -74,6 +81,20 @@ public class Persona  implements java.io.Serializable {
     
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+    
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    public Cliente getCliente() {
+        return this.cliente;
+    }
+    
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
 

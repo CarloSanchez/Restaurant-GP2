@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 03/06/2015 10:25:27 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 07/06/2015 06:59:40 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class name="modelo.entidad.Persona" optimistic-lock="version" schema="RESTAURANT" table="PERSONA">
+  <class name="modelo.entidad.Persona" optimistic-lock="version" schema="RESTAURANTE" table="PERSONA">
     <id name="idPersona" type="string">
       <column length="20" name="ID_PERSONA"/>
       <generator class="assigned"/>
@@ -22,5 +22,7 @@
     <property name="genero" type="string">
       <column length="20" name="GENERO"/>
     </property>
+    <one-to-one class="modelo.pojos.Usuario" name="usuario"/>
+    <one-to-one class="modelo.pojos.Cliente" name="cliente"/>
   </class>
 </hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/06/2015 06:59:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="modelo.pojos.Usuario" optimistic-lock="version" schema="RESTAURANTE" table="USUARIO">
+    <id name="idUsuario" type="string">
+      <column length="20" name="ID_USUARIO"/>
+      <generator class="foreign">
+        <param name="property">persona</param>
+      </generator>
+    </id>
+    <one-to-one class="modelo.entidad.Persona" constrained="true" name="persona"/>
+    <many-to-one class="modelo.entidad.TipoUsuario" fetch="select" name="tipoUsuario">
+      <column length="20" name="ID_TIPO_USUARIO"/>
+    </many-to-one>
+    <property name="login" type="string">
+      <column length="20" name="LOGIN"/>
+    </property>
+    <property name="pasword" type="string">
+      <column length="20" name="PASWORD"/>
+    </property>
+    <property name="estado" type="string">
+      <column length="20" name="ESTADO"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="ventas" table="VENTA">
+      <key>
+        <column length="20" name="ID_USUARIO" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.pojos.Venta"/>
+    </set>
+  </class>
+</hibernate-mapping>

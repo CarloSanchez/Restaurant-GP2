@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/06/2015 06:59:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="modelo.pojos.Contrato" optimistic-lock="version" schema="RESTAURANTE" table="CONTRATO">
+    <id name="idContrato" type="string">
+      <column length="20" name="ID_CONTRATO"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="modelo.pojos.Cliente" fetch="select" name="cliente">
+      <column length="20" name="ID_CLIENTE" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="modelo.entidad.Ocupacion" fetch="select" name="ocupacion">
+      <column length="20" name="ID_OCUPACION"/>
+    </many-to-one>
+    <property name="fecha" type="date">
+      <column length="7" name="FECHA"/>
+    </property>
+    <property name="fechaIni" type="date">
+      <column length="7" name="FECHA_INI"/>
+    </property>
+    <property name="fechaTerm" type="date">
+      <column length="7" name="FECHA_TERM"/>
+    </property>
+    <property name="precio" type="string">
+      <column length="20" name="PRECIO"/>
+    </property>
+    <property name="idUsuario" type="string">
+      <column length="20" name="ID_USUARIO"/>
+    </property>
+  </class>
+</hibernate-mapping>

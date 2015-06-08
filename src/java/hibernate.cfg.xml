@@ -5,12 +5,19 @@
     <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
     <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
     <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
-    <property name="hibernate.connection.username">Restaurant</property>
-    <property name="hibernate.connection.password">restaurant</property>
-    <mapping resource="modelo/pojos/TipoUsuario.hbm.xml"/>
-    <mapping resource="modelo/pojos/Categoria.hbm.xml"/>
-    <mapping resource="modelo/pojos/TipoVenta.hbm.xml"/>
-    <mapping resource="modelo/pojos/Persona.hbm.xml"/>
+    <property name="hibernate.connection.username">restaurante</property>
+    <property name="hibernate.connection.password">restaurante</property>
+    <mapping resource="modelo/pojos/Usuario.hbm.xml"/>
+    <mapping resource="modelo/pojos/Control.hbm.xml"/>
     <mapping resource="modelo/pojos/Ocupacion.hbm.xml"/>
+    <mapping resource="modelo/pojos/TipoVenta.hbm.xml"/>
+    <mapping resource="modelo/pojos/TipoUsuario.hbm.xml"/>
+    <mapping resource="modelo/pojos/Venta.hbm.xml"/>
+    <mapping resource="modelo/pojos/Cliente.hbm.xml"/>
+    <mapping resource="modelo/pojos/Contrato.hbm.xml"/>
+    <mapping resource="modelo/pojos/Persona.hbm.xml"/>
+    <mapping resource="modelo/pojos/Plato.hbm.xml"/>
+    <mapping resource="modelo/pojos/DetalleVenta.hbm.xml"/>
+    <mapping resource="modelo/pojos/Categoria.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

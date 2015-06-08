@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/06/2015 06:59:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="modelo.pojos.Venta" optimistic-lock="version" schema="RESTAURANTE" table="VENTA">
+    <id name="idVenta" type="string">
+      <column length="20" name="ID_VENTA"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="modelo.pojos.Cliente" fetch="select" name="cliente">
+      <column length="20" name="ID_CLIENTE" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="modelo.entidad.TipoVenta" fetch="select" name="tipoVenta">
+      <column length="20" name="ID_TIPOVENTA"/>
+    </many-to-one>
+    <many-to-one class="modelo.pojos.Usuario" fetch="select" name="usuario">
+      <column length="20" name="ID_USUARIO" not-null="true"/>
+    </many-to-one>
+    <property name="numeroVenta" type="string">
+      <column length="20" name="NUMERO_VENTA"/>
+    </property>
+    <property name="comidaDac" type="string">
+      <column length="1" name="COMIDA_DAC"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="detalleVentas" table="DETALLE_VENTA">
+      <key>
+        <column length="20" name="ID_VENTA" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.pojos.DetalleVenta"/>
+    </set>
+  </class>
+</hibernate-mapping>
