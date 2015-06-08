@@ -1,8 +1,13 @@
-<footer>
-    <div class="footer">
-        <nav>&copy; 2015 Derechos Reservados Jermeth Dett, Reder Tantarico and Juan Bustamante</nav>
-    </div> 
-</footer> 
+                <div class="container">    
+                <div class="row">
+                <div class="col-md-12">
+                <footer>                
+                    &copy; DERECHOS RESERVADOS POR ASHLEY DETT, JUAN BUSTAMANTE, YAIR TANTARICO.
+                    
+                </footer>             
+                </div>
+                </div>
+                </div>
     <script src="jquery/jquery-1.11.2.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
     </body>

@@ -28,8 +28,7 @@
             precioPensionista = precioPensionista == null ? "" : precioPensionista;
 
             String mensaje = "";
-            out.println("nombre:" + nombre + "<br>" + "appP:" + stock + "<br>" + "appM:" + precioNormal + "<br>" + "dni:" + precioPensionista + "<br>");
-            out.println("<br> Afuera");
+            
             if (!nombre.equals("") & !stock.equals("") & !idCategoria.equals("") & !precioNormal.equals("") & !precioPensionista.equals("")) {
 
                 plato.setNombre(nombre);
@@ -51,6 +50,9 @@
             }
         %>
         <section>
+ <div class="container">   
+ <div class="row">          
+ <div class="jumbotron">
             <div class="container">            
                 <div class="panel panel-info">
                     <div class="panel-body">
@@ -111,7 +113,9 @@
 
             </div>                            
 
-
+ </div>
+ </div>
+ </div>
         </section> 
     </body>
 </html>

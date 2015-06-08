@@ -1,5 +1,5 @@
 <html>
-    <head>     
+    <head >     
 
         <meta charcet="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
@@ -11,19 +11,49 @@
 
 
     </head>
-
+    
     <style type="text/css">
         <!--body{
-            background-color: #FFFEE1;
+
+          font-family: 'Open Sans', sans-serif;
+	  background: url(recursos/img/.jpg) no-repeat #FFF;
+        -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	 background-size: cover;
+	 background-position:0px 0px;
         }-->
+   
+        
+
+ <!--header{
+     
+             
+
+		padding:20px 0 20px 0;
+                font-weight:700;
+	        color:#FFF;
+                display:inline-block;
+                background:#1d1d1d;
+                width:100%;
+	        margin:0 auto;
+               
+                }-->
+   <!--final{
+                font-family: 'Open Sans', sans-serif; 
+                -webkit-background-size: cover;
+	       -moz-background-size: cover;
+	       -o-background-size: cover;
+	        background-size: cover;
+	         background-position:0px 0px;
+                }
+
     </style>
 
-    <body> 
-
+    <body> 	
         <header>
-
-            <div class="cabecera"><img src="recursos/img/cabecera.jpg"  width="1366" height="200"></div>
-
+            <div> <a><h1><span>ASADOR</span>MARINO</h1></a></div>
+        
             <div>  
                 <nav class="navbar navbar-inverse">
 
@@ -35,6 +65,10 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="navbar-brand" href="inicio.jsp">INICIO</a>
+                            <li><a href="inicio.jsp">
+                                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio
+                                    </a>
+                                </li>
                         </div>
 
                         <div class="navbar-collapse collapse">
@@ -52,17 +86,16 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CONTRATO<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
                                          
-
                                         <li><a href="listarContratos.jsp">VER CONTRATO</a></li> 
                                         <li><a href="Contrato.jsp">RENOVAR CONTRATO</a></li> 
-
                                     </ul>
                                 </li>
                                 
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CLIENTE<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="listarClientes.jsp">VER CLIENTE</a></li>  
+                                        <li><a href="listarClientes.jsp">PENSIONISTAS</a></li>  
+                                        <li><a href="#">CLIENTES</a></li> 
                                     </ul>
                                 </li>
 
@@ -76,17 +109,34 @@
 
                                     </ul>
                                 </li>
-
+                                 
+                                     <li class="dropdown">
+                                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">USUARIO<span class="caret"></span></a>     
+                                      <ul class="dropdown-menu" role="menu">
+                                          <li><a href="observaciones.jsp"> MI CUENTA</a> </li>
+                                      </ul>  
+                                    </li>
+                                      
+                                         <form class="navbar-form navbar-left" role="search">      
+                                         <div class="form-group">          
+                                         <input type="text" class="form-control" placeholder="Buscador">        
+                                         </div>       
+                                         <button type="submit" class="btn btn-default">Buscar</button>   
+                                         </form>
+				         </div>
+				         <div class="clear"> </div>
+                                         
+                                         
+                                         
+                             
                             </ul>
                         </div>
-                        <!--/.nav-collapse -->
-
-
                     </div>
 
                 </nav>
             </div>
 
         </header>
-
-
+        
+    </body>
+</html>

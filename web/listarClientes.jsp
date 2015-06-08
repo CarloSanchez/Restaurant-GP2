@@ -11,23 +11,28 @@
 <%@page import="modelo.dao.PersonaDao"%>
 <html>
     <body>
-        <table>
+        
+  <div class="container">   
+ <div class="row">          
+ <div class="jumbotron">
+        <table class="table" aling="canter">
             <tr>
-                <td>
-                    <h3>Clientes</h3> 
-                </td>
+               
+                    <h1>PENSIONISTAS</h1> 
+               
                 
             </tr>
-            <tr>
+            <tr>    <td>       
                     <td>Nombres  </td>
-                    <td>Apellido Paterno </td>
+                    <td>Apellido Paterno  </td>
                     <td>Apellido Materno </td>
                     <td>Documento   </td>
                     <td>Fecha Inicio </td>
                     <td>Fecha Termino </td>
+                                    </td>
                     
                     
-            </tr>
+            
             <%
                 
               
@@ -44,8 +49,10 @@
                    
             %>
             
-
+            </tr>
             <tr>
+           
+                
                 <td> <%=count%>.-</td>
                 <td><%=cliente.getNombres()%></td>
                 <td><%=cliente.getApPat()%></td>
@@ -53,14 +60,24 @@
                 <td><%=cliente.getDocumento()%></td>
                 <td><%=cliente.getFechaIni()%></td>
                 <td><%=cliente.getFechaTerm()%></td>
+                 </div>
+                 
                 <td><a href="modificarCliente.jsp">Modificar</a></td><td></td>
-                <td><a href="eliminarCliente.jsp">Eliminar</a></td>
+                <td><a href="eliminarCliente.jsp">Eliminar</a></td>  
+                
+            
+                
+                
             </tr>
-            <tr></tr>
+            <tr>
+            </tr>     
+            
             <%}%>
         </table>
     
-        
+ </div>
+ </div>
+  </div>
     </body>
 </html>
 

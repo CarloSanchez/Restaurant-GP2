@@ -107,6 +107,9 @@
                 
         %>
         <section>
+ <div class="container">   
+ <div class="row">          
+ <div class="jumbotron">
             <form action="RealizarVenta.jsp" method="POST" aling="center"> 
 
 
@@ -200,6 +203,9 @@
                     </div>                                        
                 </div>
             </form>
+ </div>
+ </div>
+ </div>
         </section>
     </body>
 </html>
