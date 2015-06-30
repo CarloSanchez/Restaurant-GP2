@@ -5,6 +5,7 @@
  */
 package modelo.dao.Impl;
 
+import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -30,7 +31,7 @@ public class PlatoDaoImpl implements PlatoDao{
     {
         Statement st = null;
         boolean flat = false;
-        String query = "INSERT INTO Plato(id_categoria, nombre, stock, precio_normal, precio_pensionista) VALUES ('"+plato.getIdCategoria()+"','"+plato.getNombre()+"','"+plato.getStock()+"',"
+        String query = "INSERT INTO Plato(id_categoria, nombre, precio_normal, precio_pensionista) VALUES ('"+plato.getIdCategoria()+"','"+plato.getNombre()+"',"
                 + "'"+plato.getPrecioPensionista()+"','"+plato.getPrecioNormal()+"')";
         System.out.println(query); 
        try {
@@ -41,6 +42,7 @@ public class PlatoDaoImpl implements PlatoDao{
             flat = true;
         } catch (Exception e) {
             e.printStackTrace();
+            out.println();
             try {
                 conecta().rollback();
                 conecta().close();
@@ -58,7 +60,8 @@ public class PlatoDaoImpl implements PlatoDao{
         Plato plato=null;
         Statement st = null;
         ResultSet rs = null;
-        String query = "select p.id_plato, p.nombre, p.stock, p.precio_pensionista, p.precio_normal from categoria c, plato p where c.id_categoria=p.id_categoria";
+        String query = "select p.id_plato, p.nombre, p.precio_pensionista, p.precio_normal"
+                + " from categoria c, plato p where c.id_categoria=p.id_categoria";
         System.out.println(query);
         try {
             
@@ -70,7 +73,6 @@ public class PlatoDaoImpl implements PlatoDao{
                 plato = new Plato();
                 plato.setIdPlato(rs.getString("id_plato"));
                 plato.setNombre(rs.getString("nombre"));
-                plato.setStock(rs.getString("stock"));
                 plato.setPrecioPensionista(rs.getString("precio_pensionista"));
                 plato.setPrecioNormal(rs.getString("precio_normal"));
                 lista.add(plato);
@@ -88,5 +90,45 @@ public class PlatoDaoImpl implements PlatoDao{
             }
         return lista;
     }
+
+    @Override
+    public List<Plato> listaPlato() 
+    {
+        List<Plato> lista = new ArrayList<Plato>();
+        Plato plato=null;
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "select p.id_plato, p.nombre, p.precio_pensionista, p.precio_normal"
+                + " from categoria c, plato p where c.id_categoria=p.id_categoria";
+        System.out.println(query);
+        try {
+            
+            
+             st = conecta().createStatement();
+             rs=st.executeQuery(query);
+             
+                while(rs.next()){
+                plato = new Plato();
+                plato.setIdPlato(rs.getString("id_plato"));
+                plato.setNombre(rs.getString("nombre"));
+                plato.setPrecioPensionista(rs.getString("precio_pensionista"));
+                plato.setPrecioNormal(rs.getString("precio_normal"));
+                lista.add(plato);
+                }
+             
+             conecta().close();
+            //System.out.println(lista);
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                conecta().close();
+            } catch (Exception ex) {
+                
+            }
+            }
+        return lista;
+    }
+
+   
 
 }

@@ -7,7 +7,6 @@ package modelo.dao;
 
 import java.util.List;
 import modelo.entidad.TipoUsuario;
-import static sun.security.jgss.GSSUtil.login;
 
 /**
  *

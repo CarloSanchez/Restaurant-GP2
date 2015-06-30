@@ -26,12 +26,92 @@ public class UsuarioDaoImpl implements UsuarioDao{
     {
         return ConexionOracle.conectar();
     }
+    
+    public Connection abrirConexion()
+    {
+    return ConexionOracle.conectar();
+    }
+  
+    
+    public void Guardar()
+    {
+        try {
+            ConexionOracle.conectar().commit();
+        } catch (Exception e) {
+        }
+    }
+     
+    
+    public void Revertir()
+    {
+        try {
+            ConexionOracle.conectar().rollback();
+        } catch (Exception e) {
+        }
+    }
+    
+    
+    public void cerrarConexion() 
+    {try {
+            ConexionOracle.conectar().close();
+        } catch (Exception e) {
+        }
+    
+    }
 
+    @Override
+    public String validarDatos(String login, String password) 
+    {
+        String id_usuario=null;
+        
+        String query = "select id_usuario from usuario"
+                + " where upper(login) ='"+login.toUpperCase()+"' and password ='"+password+"'";
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = abrirConexion().createStatement();
+            rs = st.executeQuery(query);
+            if (rs.next()) {
+                id_usuario = rs.getString("id_usuario");
+            }
+            cerrarConexion();
+        } catch (Exception e) {
+            cerrarConexion();
+            e.printStackTrace();
+            System.out.println("ERROR:"+e.getMessage());
+        }
+        return id_usuario;
+    }
+
+    @Override
+    public Usuario mostrarUsuario(String idUsuario) 
+    {
+        Usuario usuario = null;// para que el recolector de basura lo lleve
+        String query = "SELECT p.ap_pat||' '||p.ap_mat||', '||p.nombres as usuar FROM persona p, usuario u"
+                + " WHERE p.id_persona=u.id_usuario and id_usuario='"+idUsuario+"'";
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = abrirConexion().createStatement();
+            rs = st.executeQuery(query);
+            if (rs.next()) {
+                
+                usuario = new Usuario();// crea una entidad que puede almacenar n registros
+                usuario.setUsuarioo(rs.getString("usuar"));
+            }
+            cerrarConexion();
+        } catch (Exception e) {
+            cerrarConexion();
+            e.printStackTrace();
+            System.out.println("ERROR:"+e.getMessage());
+        }
+        return usuario;
+    }
 
     @Override
     public List<Usuario> listarUsuario() 
     {
-        List<Usuario> lista = new ArrayList<Usuario>();
+    List<Usuario> lista = new ArrayList<Usuario>();
         Usuario usuario = null;
         Statement st = null;
         ResultSet rs = null;
@@ -43,7 +123,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
                 usuario = new Usuario();
                 usuario.setIdUsuario(rs.getString("id_usuario"));
                 usuario.setLogin(rs.getString("login"));
-                usuario.setPasword(rs.getString("password"));
+                usuario.setPassword(rs.getString("password"));
                 lista.add(usuario);
             }
             conecta().close();
@@ -57,36 +137,6 @@ public class UsuarioDaoImpl implements UsuarioDao{
         return lista;
     }
 
-    @Override
-    public List<Usuario> validarusuario(String login, String password) 
-    {
-        List<Usuario> lista = new ArrayList<Usuario>();
-        Usuario u=null;
-        Statement st=null;
-        ResultSet rs=null;
-        String query="select u.login, u.pasword , u.id_usuario from persona p,usuario u "
-                + "where p.id_persona=u.id_usuario and u.login='"+login+"' and u.password='"+password+"'";
-         try {
-            st=conectar().createStatement();
-            rs=st.executeQuery(query);
-             while (rs.next()) {
-                 u=new Usuario();
-                 u.setIdUsuario(rs.getString("id_usuario"));
-                 u.setLogin(rs.getString("login"));
-                 u.setPasword(rs.getString("password"));
-                 lista.add(u);
-             }
-             conectar().close();
-        } 
-         catch (Exception e) {
-            e.printStackTrace();
-             try {
-                  conectar().close(); 
-             } catch (Exception ex) {
-               
-             }
-        }
-         return lista;
-    }
-    
+
+   
 }

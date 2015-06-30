@@ -13,87 +13,30 @@
 <%@page import="modelo.dao.RestaurantDao"%>
 <%@include file="WEB-INF/jspf/top.jspf"%>
 <html>
-    <body>
-        <%
-            RestaurantDao rest = new RestaurantDaoImpl();
-            PersonaDao per = new PersonaDaoImpl();
-            ClienteDao cl = new ClienteDaoImpl();
-            OcupacionDao ocp = new OcupacionDaoImpl();
-            Persona persona = new Persona();
-            Cliente client = new Cliente(); 
-            Ocupacion op = new Ocupacion();
-            Contrato contrato = new Contrato();
-            PersonaCliente pc = new PersonaCliente();
-                    
-            
-            String idPersona = request.getParameter("idPersona");
-            idPersona = idPersona == null ? "" : idPersona;
-            out.println(idPersona);
-            
-            String idCliente = request.getParameter("idcliente");
-            idCliente = idCliente == null ? "" : idCliente;
-
-            String nombres = request.getParameter("nombres");
-            nombres = nombres == null ? "" : nombres;
-            
-            String idOcupacion = request.getParameter("idOcupacion");
-            idOcupacion = idOcupacion == null ? "" : idOcupacion;
-
-            String ap_pat = request.getParameter("ap_pat");
-            ap_pat = ap_pat == null ? "" : ap_pat;
-
-            String ap_mat = request.getParameter("ap_mat");
-            ap_mat = ap_mat == null ? "" : ap_mat;
-
-            String buscarDni = request.getParameter("buscarDni");
-            buscarDni = buscarDni == null ? "" : buscarDni;
-
-            String documento = request.getParameter("documento");
-            documento = documento == null ? "" : documento;
-            
-            String precio = request.getParameter("precio");
-            precio = precio == null ? "" : precio;
-
-            String opcion = request.getParameter("opcion");
-            opcion = opcion == null ? "buscar" : opcion;
-
-            String mensaje = "";
-            String mensaje2="";
-            String mensajeError = "";
-            
-             if(opcion.equals("buscar")){
-            if (!buscarDni.equals("")) {
-                persona = per.buscarPersona(buscarDni);
-                if (persona != null) {
-                    idPersona = persona.getIdPersona();
-                    nombres = persona.getNombres();
-                    ap_pat = persona.getApPat();
-                    ap_mat = persona.getApMat();
-                    documento = persona.getDocumento();
-                    opcion="registrar";
-                } else {
-                    mensaje = "La persona no esta registrado <a href='registrarPersona.jsp'> Registrar Aqui</a>";
-                }
-                }
-            }
-                if(!opcion.equals("registrar")){
-                  client.setIdCliente(idPersona);
-                   
-                   if(cl.insertarCliente(client)){
-                       response.sendRedirect("ContratoCliente.jsp?idCliente="+client.getIdCliente());
-                   }
-                   }else {
-                    mensajeError = "No se pudo registrar el cliente";
-                    mensaje2 = "<a href='ContratoCliente.jsp'>Intentar Nuevamente</a>";
-                }
-                
-                
-            
-        %>
+    <body><jsp:useBean id="mensaje" scope="request" class="java.lang.String" />
+        <jsp:useBean id="idPersona" scope="request" class="java.lang.String" />
+        <jsp:useBean id="nombres" scope="request" class="java.lang.String" />
+        <jsp:useBean id="ap_pat" scope="request" class="java.lang.String" />
+        <jsp:useBean id="ap_mat" scope="request" class="java.lang.String" />
+        <jsp:useBean id="documento" scope="request" class="java.lang.String" />
+        <jsp:useBean id="mensaje2" scope="request" class="java.lang.String" />
         
-        <form action="buscarPersona.jsp" method="POST"> 
-            
-           
+         <section>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+            <div class="container">               
+            <div class="fondo">
+            <div class="row">          
+            <div class="col-md-6">
+            <div class="jumbotron">
+            <div class="container">
+       
+        <form action="acciones" method="POST"> 
+            <input type="hidden" name="option" value="buscacli">
+            <input type="hidden" name="opcion" value="buscar">
             <table>
                 <tr>
                     <td>DNI:</td>
@@ -101,15 +44,16 @@
                     <td><input type="submit" value="Buscar"></td>
                 </tr> </table>
                 <tr>
-                    <td colpan="3"><%=mensaje%></td>
+                    <td colpan="3">${mensaje}</td>
                 </tr>
             
         </form>
         
         <%=idPersona%>
-        <form action="buscarPersona.jsp">
-            <input type="hidden" name="idPersona" value="<%=idPersona%>" size="20">
-            <input type="hidden" name="opcion" value="resgitrar" class="from-horizontal">
+        <form method="POST" action="acciones" >
+            <input type="hidden" name="idCliente" value="<%=idPersona%>">
+            <input type="hidden" name="option" value="regcliente"
+            <input type="hidden" name="opcion" value="registra">
             <table> 
                 <tr>
                     <td>Nombres:</td>
@@ -128,20 +72,28 @@
                     <td><input type="text" name="documento" placeholder="Dni" value="<%=documento%>" readonly="true"></td>
                 </tr> 
                 
-                <%if(mensajeError.equals("")){%>
+                
                 <tr>
-                    <td colspan="2"><%=mensajeError%></td>
+                    <td colspan="2">${mensaje2}</td>
                 </tr>
                 
-                <%}%>
+                
                 <tr>
                     <td>
-                        <input type="submit" value="Registrar">
+                        <input type="submit" value="Realizar Contrato">
                     </td>
                 </tr>
             </table>
         </form>
-        
+      
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+         </section>
+                
         
     </body>
 </html>

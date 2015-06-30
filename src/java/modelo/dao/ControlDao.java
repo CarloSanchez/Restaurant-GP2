@@ -5,10 +5,18 @@
  */
 package modelo.dao;
 
+import java.util.List;
+import modelo.entidad.Control;
+import modelo.entidad.DetalleVenta;
+import modelo.entidad.Persona;
+
 /**
  *
  * @author ADMIN
  */
 public interface ControlDao {
-    
+    public boolean ejecutarControl(String idCliente);
+    public List<Control> listarControl();
+    public List<Control> listarDetalleConsumo(String idCliente, String fecha);
+    public List<DetalleVenta> listarVentas(String fecha1, String fecha2);
 }

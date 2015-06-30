@@ -64,7 +64,7 @@ public class ClienteDaoImpl implements ClienteDao
         Cliente client=null;
         Statement st = null;
         ResultSet rs = null;
-        String query = "select p.id_persona, p.nombres, p.ap_pat, p.ap_mat from persona p, cliente c where p.id_persona=c.id_cliente";
+        String query = "select p.id_persona, p.nombres, p.ap_pat, p.ap_mat, p.documento from persona p, cliente c where p.id_persona=c.id_cliente";
         System.out.println(query);
         try {
             
@@ -78,6 +78,7 @@ public class ClienteDaoImpl implements ClienteDao
                 client.setNombres(rs.getString("nombres"));
                 client.setApPat(rs.getString("ap_pat"));
                 client.setApMat(rs.getString("ap_mat"));
+                client.setDocumento(rs.getString("documento"));
                 lista.add(client);
                 }
              
@@ -180,7 +181,7 @@ public class ClienteDaoImpl implements ClienteDao
         Statement st = null;
         ResultSet rs = null;
         String query = "SELECT p.id_persona, p.nombres, p.ap_pat, p.ap_mat, p.documento from persona p, cliente c, contrato cn "
-                + "where p.id_persona=c.id_cliente and c.id_cliente=cn.id_cliente and sysdate<cn.fecha_term and p.documento='"+documento+"'";
+                + "where p.id_persona=c.id_cliente and c.id_cliente=cn.id_cliente and p.documento='"+documento+"' and sysdate<cn.fecha_term ";
         System.out.println(query); 
         //String query2 = "SELECT p.id_persona, p.nombres, p.ap_pat, p.ap_mat, p.documento from persona p, cliente "
                // + "where p.id_persona=c.id_cliente and p.documento=";
@@ -195,8 +196,6 @@ public class ClienteDaoImpl implements ClienteDao
                 p.setApPat(rs.getString("ap_pat"));
                 p.setApMat(rs.getString("ap_mat"));
                 p.setDocumento(rs.getString("documento"));
-                System.out.println("Pensionista");
-                
             }
             
             conecta().close();

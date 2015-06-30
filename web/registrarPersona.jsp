@@ -1,111 +1,90 @@
+<%@page import="modelo.entidad.Cliente"%>
+<%@page import="modelo.dao.Impl.ClienteDaoImpl"%>
+<%@page import="modelo.dao.ClienteDao"%>
 <%@page import="modelo.dao.Impl.PersonaDaoImpl"%>
 <%@page import="modelo.dao.PersonaDao"%>
 <%@page import="modelo.entidad.Persona"%>
 <%@page import="modelo.dao.Impl.RestaurantDaoImpl"%>
 <%@page import="modelo.dao.RestaurantDao"%>
 <%@include file="WEB-INF/jspf/top.jspf"%>
+<html>
+    <body><jsp:useBean id="mensaje" scope="request" class="java.lang.String" />  
 
-<%
-    RestaurantDao restdao = new RestaurantDaoImpl();
-    PersonaDao per = new PersonaDaoImpl();
-    Persona persona = new Persona();
+        <section aling="center">
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+            <div class="container">               
+            <div class="fondo">
+            <div class="row">          
+            <div class="col-md-8">
+            <div class="jumbotron">
+            <div class="container">
+            <div class="container">            
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                        <div class="box">
 
-    String nombres = request.getParameter("nombres");
-    nombres = nombres == null ? "" : nombres;
+                            <div class="center gap">
 
-    String ap_pat = request.getParameter("ap_pat");
-    ap_pat = ap_pat == null ? "" : ap_pat;
+                                <form method="POST" action="acciones" class="form-horizontal">  
+                                    <input type="hidden" name="option" value="agregarp" class="btn btn-primary">
+                                    <table class="table" align="center">
+                                        
+                                            <tr>
+                                                <td>NOMBRES:</td>
+                                                <td><input type="text" name="nombres" placeholder="Nombres"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>APELLIDO PATERNO:</td>
+                                                <td><input type="text" name="ap_pat" placeholder="Apellido Paterno" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td>APELLIDO MATERNO:</td>
+                                                <td><input type="text" name="ap_mat" placeholder="Apellido materno" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td>DNI:</td>
+                                                <td><input type="text" name="documento" placeholder="DNI" maxlength="8"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SEXO:</td>
+                                                <td>
+                                                    <select name="genero">
+                                                        <option>Seleccione</option>
+                                                        <option value="M">Masculino</option>
+                                                        <option value="F">Femenino</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
 
-    String ap_mat = request.getParameter("ap_mat");
-    ap_mat = ap_mat == null ? "" : ap_mat;
+                                            <tr>
+                                                <td colspan="2">${mensaje}</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <input type="submit" value="Registrar" class="btn btn-primary">
+                                                </td>
+                                            </tr>
+                                        
+                                    </table>
 
-    String documento = request.getParameter("documento");
-    documento = documento == null ? "" : documento;
+                                </form>                                    
+                            </div>
+                        </div>
+                    </div></div>                                        
 
-    String genero = request.getParameter("genero");
-    genero = genero == null ? "" : genero;
-
-    String mensaje = "";
-   out.println("nombre:"+nombres+"<br>"+"appP:"+ap_pat+"<br>"+"appM:"+ap_mat+"<br>"+"dni:"+documento+"<br>"+"genero:"+genero);
-   out.println("<br> Afuera");
-    if (!nombres.equals("") & !ap_pat.equals("") & !ap_mat.equals("") & !documento.equals("") & !genero.equals("")) {
- 
-        persona.setNombres(nombres);
-        persona.setApPat(ap_pat);
-        persona.setApMat(ap_mat);
-        persona.setDocumento(documento);
-        persona.setGenero(genero);
-        
-        if (per.agregarPersona(persona)) {
-            response.sendRedirect("buscarPersona.jsp");
-            out.println("Adentro");
-        } else {
-            mensaje = "No se pudo registrar";
-            //System.out.println("NO registro");
-            response.sendRedirect("registrarPersona.jsp");
-
-        }
-    }
-
-%>   
-
-<section>
-    <div class="container">            
-        <div class="panel panel-info">
-            <div class="panel-body">
-                <div class="box">
-
-                    <div class="center gap">
-
-                        <form name="form1" method="post" action="registrarPersona.jsp" class="form-horizontal">                                         
-                            <table class="table" align="center">
-                                <tbody>
-                                    <tr>
-                                    <td>NOMBRES:</td>
-                                    <td><input type="text" name="nombres" placeholder="Nombres"></td>
-                                </tr>
-                                <tr>
-                                    <td>APELLIDO PATERNO:</td>
-                                    <td><input type="text" name="ap_pat" placeholder="Apellido Paterno" ></td>
-                                </tr>
-                                <tr>
-                                    <td>APELLIDO MATERNO:</td>
-                                    <td><input type="text" name="ap_mat" placeholder="Apellido materno" ></td>
-                                </tr>
-                                <tr>
-                                    <td>DNI:</td>
-                                    <td><input type="text" name="documento" placeholder="DNI" maxlength="8"></td>
-                                </tr>
-                                <tr>
-                                    <td>SEXO:</td>
-                                    <td>
-                                        <select name="genero">
-                                            <option>Seleccione</option>
-                                            <option value="M">Masculino</option>
-                                            <option value="F">Femenino</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                
-                                <tr>
-                                    <td colspan="2"><%=mensaje%></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <input type="submit" value="Registrar">
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-
-                        </form>                                    
-                    </div>
-                </div>
-            </div></div>                                        
-
-    </div>                            
-
-
-</section> 
-
+            </div>       
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </section>
+   
+    </body>
+</html>
 <%@include file="WEB-INF/jspf/bottom.jspf"%>

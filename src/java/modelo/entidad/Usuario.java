@@ -13,9 +13,10 @@ public class Usuario
 {
     private String idUsuario;
     private String login;
-    private String pasword;
+    private String password;
     private String estado;
     private String idTipoUsuario;
+    private String usuarioo;
 
     public Usuario() {
         this.idUsuario="";
@@ -37,12 +38,12 @@ public class Usuario
         this.login = login;
     }
 
-    public String getPasword() {
-        return pasword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasword(String pasword) {
-        this.pasword = pasword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEstado() {
@@ -60,7 +61,17 @@ public class Usuario
     public void setIdTipoUsuario(String idTipoUsuario) {
         this.idTipoUsuario = idTipoUsuario;
     }
+
+    public String getUsuarioo() {
+        return usuarioo;
+    }
+
+    public void setUsuarioo(String usuarioo) {
+        this.usuarioo = usuarioo;
+    }
+
+   
     
+
     
- 
 }

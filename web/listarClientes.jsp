@@ -11,88 +11,79 @@
 <%@page import="modelo.dao.PersonaDao"%>
 <html>
     <body>
-        
-  <div class="container">   
- <div class="row">          
- <div class="jumbotron">
-        <table class="table" aling="canter">
-            <tr>
-               
-                    <h1>PENSIONISTAS</h1> 
-               
-                
-            </tr>
-            <tr>    <td>       
-                    <td>Nombres  </td>
-                    <td>Apellido Paterno  </td>
-                    <td>Apellido Materno </td>
-                    <td>Documento   </td>
-                    <td>Fecha Inicio </td>
-                    <td>Fecha Termino </td>
-                                    </td>
-                    
-                    
-            
-            <%
-                
-              
-          
-                
-                ClienteDao client = new ClienteDaoImpl();
-               int count = 0;
-                 
-                for (Cliente cliente: client.listarPensionista()) {
-                    count++;
-              
-                    
-                     
-                   
-            %>
-            
-            </tr>
-            <tr>
-           
-                
-                <td> <%=count%>.-</td>
-                <td><%=cliente.getNombres()%></td>
-                <td><%=cliente.getApPat()%></td>
-                <td><%=cliente.getApMat()%></td>
-                <td><%=cliente.getDocumento()%></td>
-                <td><%=cliente.getFechaIni()%></td>
-                <td><%=cliente.getFechaTerm()%></td>
-                 </div>
-                
-                                
-               
-                <td> 
-                
-                                <li><a href="eliminarCliente.jsp">
-                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                           
-               </td> 
-                <td> 
-                <li>
-                <a href="modificarCliente.jsp">
-                <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>modificar
-                </a>
-                </li>                       
-               </td> 
- <
-                
-                
-            </tr>
-            <tr>
-            </tr>     
-            
-            <%}%>
-        </table>
-    
- </div>
- </div>
-  </div>
+        <br>
+        <br>
+        <div class="container">   
+            <div class="row">          
+                <div class="jumbotron">
+                    <h3>Clientes</h3> 
+                    <div class="container">            
+                        <div class="panel panel-info">
+                            <div class="panel-body">
+                                <div class="box">
+                                    <div class="center gap">                    
+                                        <table class="table" aling="canter">
+                                            <tr>
+                                            </tr>
+                                            <tr><td>       
+                                                <td>Nombres  </td>
+                                                <td>Apellido Paterno  </td>
+                                                <td>Apellido Materno </td>
+                                                <td>Documento   </td>
+
+
+
+
+                                                <%
+
+                                                    ClienteDao client = new ClienteDaoImpl();
+                                                    int count = 0;
+
+                                                    for (Cliente cliente : client.listarCliente()) {
+                                                        count++;
+
+
+                                                %>
+
+                                            </tr>
+                                            <tr>
+
+
+                                                <td> <%=count%>.-</td>
+                                                <td><%=cliente.getNombres()%></td>
+                                                <td><%=cliente.getApPat()%></td>
+                                                <td><%=cliente.getApMat()%></td>
+                                                <td><%=cliente.getDocumento()%></td>
+                                                </div>
+
+                                                <td> 
+                                            <li>
+                                                <a href="#">
+                                                    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>Actualizar
+                                                </a>
+                                            </li>                       
+                                            </td> 
+
+
+
+                                            </tr>
+                                            <tr>
+                                            </tr>     
+
+                                            <%}%>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
 
+
 <%@include file="WEB-INF/jspf/bottom.jspf"%>
+

@@ -11,13 +11,20 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">    
         </head>  
         <body>   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->   
-            <header>
-      
-        </header>
+            
         <div>
-        <did class="container"> 
-        <div class="row">
-        <div clas="col-md-7">
+            <section>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+            <div class="container">               
+            <div class="fondo">
+            <div class="row">          
+            <div class="col-md-6">
+            <div class="jumbotron">
+            <div class="container">
         <section class="well" id="center">
         <h3>PLATOS</h3>
 
@@ -34,35 +41,35 @@
                         <div class="item active">
                             <img  src = "recursos/img/arroz1.jpg"  alt = "REST" >    
                             <div  class = "carrusel-caption" >  
-                             <h3>ARROZ1</h3>
+                             
                            </div>                           
                         </div>
                         
                         <div class="item ">
                             <img  src = "recursos/img/arroz2.jpg"  alt = "REST" >    
                             <div  class = "carrusel-caption" >  
-                             <h3>ARROZ2</h3>
+                             
                            </div>                           
                         </div>
                          
                         <div class="item ">
                             <img  src = "recursos/img/arroz3.jpg"  alt = "REST" >    
                             <div  class = "carrusel-caption" >  
-                             <h3>ARROZ3</h3>
+                             
                            </div>                           
                         </div>  
                         
                         <div class="item ">
                             <img  src = "recursos/img/causa.jpg"  alt = "REST" >    
                             <div  class = "carrusel-caption" >  
-                             <h3>CAUSA</h3>
+                            
                            </div>                           
                         </div>  
                         
                         <div class="item ">
                             <img  src = "recursos/img/PEZ.jpg"  alt = "REST" >    
                             <div  class = "carrusel-caption" >  
-                             <h3>pez</h3>
+                            
                            </div>                           
                         </div>  
                     </div>
@@ -76,14 +83,11 @@
                         
                     </a>
                 </div> 
-       
                 </section>
-           
-
-
-        </div>
-        </div>
-        </did>
+                </div>
+                </div>
+                </did>
+                  
  
     
     <script src="js/jquery-1.11.1.min.sj"></script>
@@ -95,25 +99,31 @@
         });
     </script>
      </div>
- <div class="col-md-7 offset-1">
- <section class="well" id="back1">                                
- <h1>PLASTOS DEL DIA</h1>  
- <div>
- <p>TENEMOS LOS MEJORES PLATOS PARA SABOREAR</p>
- <li><a href="menu.jsp">MENU DEL DIA</a></li>
- </div>
+ <div class="col-md-6 offset-1">
+    <section class="well" id="back1">                                
+                        <h2>Nuestra Mision</h2>
+                        <p>Ofrecer a nuestros clientes productos alimenticios de calidad, nutritivos 
+                           y saludables; en un ambiente agradable desarrollados por un equipo humano
+                           competente, comprometido en proporcionar excelente servicio 
+                           y satisfacción, generando desarrollo económico social al país y la empresa..</p>
+                         <h2>Nuestra Vision</h2>
+                          <p>Ser reconocidos como el mejor restaurante de prestigio, confiable en comida
+                           marina y criolla en donde nuestro compromiso principal sea crear experiencias
+                           agradables al paladar de nuestros clientes.</p>                      
+                       </div>    
+                     <div><span><a href="menu.jsp" class="btn btn-primary">Leer Mas</a></span></div>
+                 </div>
+             </div>
+          </div> 
+                 	
+
+
  </section>
  </div>
-         
-             
-<p>
-<a class="btn btn-primary btn-lg" role="button">Leer mas</a></p>     
-  
- <section>      
        
- </body>
-  
-</html>
+      
+        
+ 
  <%@include file="WEB-INF/jspf/bottom.jspf"%>  			
 	
 

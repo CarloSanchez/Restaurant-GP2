@@ -53,8 +53,8 @@ public class ContratoDaoImpl implements ContratoDao{
     {
         Statement st = null;
         boolean flat = false;
-        String query = "INSERT INTO Contrato(id_cliente, id_ocupacion,fecha, fecha_ini, fecha_term, precio, id_usuario) "
-                + "VALUES('"+contrato.getIdCliente()+"','"+contrato.getIdOcupacion()+"',to_char(sysdate),'"+contrato.getFechaIni()+"','"+contrato.getFechaTerm()+"','"+contrato.getPrecio()+"','')";
+        String query = "INSERT INTO contrato(id_cliente, id_ocupacion, fecha, fecha_ini, fecha_term, precio, estado) "
+                + "VALUES('"+contrato.getIdCliente()+"','"+contrato.getIdOcupacion()+"',to_char(sysdate),'"+contrato.getFechaIni()+"','"+contrato.getFechaTerm()+"','"+contrato.getPrecio()+"','1')";
         System.out.println(query); 
        try {
             st = conecta().createStatement();

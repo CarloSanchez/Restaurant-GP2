@@ -15,6 +15,7 @@ public class Persona  implements java.io.Serializable {
      private String apMat;
      private String documento;
      private String genero;
+     private String person;
 
     public Persona() {
         this.idPersona="";
@@ -76,8 +77,13 @@ public class Persona  implements java.io.Serializable {
         this.genero = genero;
     }
 
+    public String getPerson() {
+        return person;
+    }
 
-
+    public void setPerson(String person) {
+        this.person = person;
+    }
 
 }
 

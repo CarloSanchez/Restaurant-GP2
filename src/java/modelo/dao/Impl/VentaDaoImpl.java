@@ -5,6 +5,7 @@
  */
 package modelo.dao.Impl;
 
+
 import java.sql.Connection;
 import java.sql.Statement;
 import modelo.dao.VentaDao;
@@ -27,8 +28,10 @@ public class VentaDaoImpl implements VentaDao{
     {
         Statement st = null;
         boolean flat = false;
-        String query = "INSERT INTO Venta(id_cliente, id_usuario, id_tipoventa, comida_DAC, fecha) VALUES ('"+venta.getIdCliente()+"',"
-                + "'"+venta.getIdUsuario()+"','"+venta.getIdTipoventa()+"','"+venta.getComidaDAC()+"',to_char(sysdate))";
+        String query = "INSERT INTO venta(id_cliente, id_usuario, id_tipoventa, comida_DAC, fecha) "
+                + "VALUES ('"+venta.getIdCliente()+"','"+venta.getIdUsuario()+"',"
+                + "'"+venta.getIdTipoventa()+"','"+venta.getComidaDAC()+"',"
+                + "to_char(sysdate,'dd/mm/yyyy'))";
         System.out.println(query); 
        try {
             st = conecta().createStatement();
@@ -38,7 +41,9 @@ public class VentaDaoImpl implements VentaDao{
             flat = true;
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
             try {
+                System.out.println(e.getMessage());
                 conecta().rollback();
                 conecta().close();
                 flat = false;

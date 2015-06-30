@@ -1,11 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>Validar</servlet-name>
+        <servlet-class>Controlador.Validar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Acciones</servlet-name>
+        <servlet-class>Controlador.Acciones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Ocultar</servlet-name>
+        <servlet-class>Controlador.Ocultar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlVenta</servlet-name>
+        <servlet-class>Controlador.ControlVenta</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Validar</servlet-name>
+        <url-pattern>/valida</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cerrar</servlet-name>
+        <url-pattern>/salir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Acciones</servlet-name>
+        <url-pattern>/acciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Ocultar</servlet-name>
+        <url-pattern>/ocultar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlVenta</servlet-name>
+        <url-pattern>/ventas</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            15
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>inicio.jsp</welcome-file>
+        <welcome-file>Ingresar.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

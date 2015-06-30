@@ -13,6 +13,7 @@ import modelo.entidad.Usuario;
  * @author ADMIN
  */
 public interface UsuarioDao {
-     public List<Usuario> listarUsuario();
-     public List<Usuario> validarusuario(String login,String password); 
+    public List<Usuario> listarUsuario();
+    public String validarDatos(String login, String password);
+    public Usuario mostrarUsuario(String idUsuario); 
 }

@@ -16,4 +16,5 @@ public interface PlatoDao {
     
     public boolean insertarPlato(Plato plato);
      public List<Plato> listarPlato();
+     public List<Plato> listaPlato();
 }
