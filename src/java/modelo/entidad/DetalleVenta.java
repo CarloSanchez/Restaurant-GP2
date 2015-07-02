@@ -20,6 +20,7 @@ public class DetalleVenta {
     private String numeroVenta;
     private String nombre;
     private String total;
+    private String ttotal;
 
     public DetalleVenta() {
     }
@@ -94,6 +95,14 @@ public class DetalleVenta {
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+    public String getTtotal() {
+        return ttotal;
+    }
+
+    public void setTtotal(String ttotal) {
+        this.ttotal = ttotal;
     }
 
     

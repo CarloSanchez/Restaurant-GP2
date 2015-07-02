@@ -156,8 +156,7 @@ public class DetalleVentaDaoImpl implements DetalleVentaDao {
         ResultSet rs = null;
         String query = "select v.numero_venta, p.nombre, dv.fecha, dv.precio, "
                 + "dv.cantidad from plato p, detalle_venta dv, venta v "
-                + "where p.id_plato=dv.id_plato and dv.id_venta=v.id_venta "
-                + "and v.id_venta=''";
+                + "where p.id_plato=dv.id_plato and dv.id_venta=v.id_venta ";
         System.out.println(query);
         try {
 

@@ -19,6 +19,8 @@ public class Control {
     private String plato;
     private String pensionista;
     private String turno;
+    private String total;
+    private String ttotal;
 
     public Control() {
     }
@@ -85,6 +87,22 @@ public class Control {
 
     public void setTurno(String turno) {
         this.turno = turno;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public String getTtotal() {
+        return ttotal;
+    }
+
+    public void setTtotal(String ttotal) {
+        this.ttotal = ttotal;
     }
 
    

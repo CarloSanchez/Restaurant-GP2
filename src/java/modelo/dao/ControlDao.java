@@ -19,4 +19,5 @@ public interface ControlDao {
     public List<Control> listarControl();
     public List<Control> listarDetalleConsumo(String idCliente, String fecha);
     public List<DetalleVenta> listarVentas(String fecha1, String fecha2);
+    public List<DetalleVenta> listarTotal(String fecha1, String fecha2); 
 }

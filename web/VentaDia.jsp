@@ -59,8 +59,9 @@
 
                                                                         <thead>   
                                                                         <td></td>
-                                                                        <td><strong>Plato</strong></td>
+                                                                        <td><strong>Venta</strong></td>
                                                                         <td><strong>Cantidad</strong></td>
+                                                                        <td><strong>Precio</strong></td>
                                                                         <td><strong>Total</strong></td>
                                                                         </thead>
                                                                         <tbody>
@@ -73,12 +74,14 @@
                                                                             <tr>    
 
                                                                                 <td></td>
-                                                                                <td><%=dv.getNombre()%></td>
+                                                                                <td><%=dv.getIdVenta()%></td>
                                                                                 <td><%=dv.getCantidad()%></td>
                                                                                 <td><%=dv.getPrecio()%></td>
-
+                                                                                <td><%=dv.getTotal()%></td>
                                                                             </tr>
+                                                                            
                                                                             <%}%>
+                                                                            
 
                                                                         </tbody>
 

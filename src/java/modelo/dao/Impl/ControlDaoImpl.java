@@ -135,21 +135,24 @@ public class ControlDaoImpl implements ControlDao {
         DetalleVenta dv = null;
         Statement st = null;
         ResultSet rs = null;
-        String query = "select NVL(p.nombre,'TOTAL') as nombre, sum(dv.cantidad) as cantidad, 'S/.'||(sum(dv.precio*dv.cantidad)) as precio "
+        String query = "select v.id_venta, sum(dv.cantidad) as cantidad, dv.precio,"
+                + " 'S/.'||(sum(dv.precio*dv.cantidad)) as total "
                 + "from detalle_venta dv, plato p, venta v, cliente c, contrato cnt "
                 + "where cnt.id_cliente=c.id_cliente and c.id_cliente=v.id_cliente and "
                 + "v.id_venta=dv.id_venta and  dv.id_plato=p.id_plato and "
-                + "dv.fecha between to_char('"+fecha1+"') "
-                + "and to_char('"+fecha2+"') group by rollup(p.nombre)";
+                + "v.fecha between to_char('"+fecha1+"') "
+                + "and to_char('"+fecha2+"') and SYSDATE>cnt.fecha_term group by v.id_venta,dv.precio";
+        
         System.out.println(query);
         try {
             st = conecta().createStatement();
             rs = st.executeQuery(query);
             while (rs.next()) {
                 dv = new DetalleVenta();
-                dv.setNombre(rs.getString("nombre"));
+                dv.setIdVenta(rs.getString("id_venta"));
                 dv.setCantidad(rs.getString("cantidad"));
                 dv.setPrecio(rs.getString("precio"));
+                dv.setTotal(rs.getString("total"));
                 lista.add(dv);
             }
             conecta().close();
@@ -164,5 +167,39 @@ public class ControlDaoImpl implements ControlDao {
         }
         return lista;
     }
+
+    @Override
+    public List<DetalleVenta> listarTotal(String fecha1, String fecha2) 
+    {
+        List<DetalleVenta> lista = new ArrayList<DetalleVenta>();
+        DetalleVenta dv = null;
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "select sum(cantidad*precio) as ttotal from detalle_venta "
+                + "fecha between to_char('"+fecha1+"') "
+                + "and to_char('"+fecha2+"') and SYSDATE>cnt.fecha_term group by v.id_venta,dv.precio";
+        
+        System.out.println(query);
+        try {
+            st = conecta().createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+                dv = new DetalleVenta();
+                
+                dv.setTtotal(rs.getString("ttotal"));
+                lista.add(dv);
+            }
+            conecta().close();
+            //System.out.println(lista);
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                conecta().close();
+            } catch (Exception ex) {
+
+            }
+        }
+        return lista;
+     }
 
 }
